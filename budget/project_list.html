@@ -1,0 +1,38 @@
+{% extends 'budget/base.html' %}
+
+{% block content %}
+
+
+
+
+
+<div class="row my-5">
+
+  {% for project in all_projects%}
+  <div class="col-sm-6 mb-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{project.name}}</h5>
+        <a href="{% url 'budget:project_detail' project.slug %}" class="btn btn-info">View</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% if not all_projects %}
+<div class="container mt-5">
+
+  <div class="card bg-light">
+    <div class="card-body">
+      <h3 class="card-title text-center">Sorry, no project to show</h3>
+    </div>
+  </div>
+
+</div>
+{% endif %}
+
+
+
+
+{% endblock %}
